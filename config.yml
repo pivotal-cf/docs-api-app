@@ -22,7 +22,7 @@ sections:
     use_local_header: true
     latest_stable_version: 2.0
     local_header_img: /images/cloud_rings.png
-    local_header_title: PCF Metrics
+    local_header_title: PCF Release Notes
     search_placeholder: Search PCF Release Notes
     url_prefix: pivotalcf/2-0/pcf-release-notes
     local_product_version: 2.0
