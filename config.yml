@@ -28,3 +28,9 @@ sections:
     local_product_version: 2.0
     local_header_links: []
     local_header_version_list:
+      - url_prefix: http://docs.pivotal.io/pivotalcf/1-12/pcf-release-notes/
+        display_name: v1.12
+      - url_prefix: http://docs.pivotal.io/pivotalcf/1-11/pcf-release-notes/
+        display_name: v1.10
+      - url_prefix: http://docs.pivotal.io/pivotalcf/1-10/pcf-release-notes/
+        display_name: v1.10
