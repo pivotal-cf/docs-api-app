@@ -1,0 +1,348 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>
+      PCF Runtime for Windows v1.12 Release Notes |
+    Pivotal Docs
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/all.css" rel="stylesheet" media="screen, print" />
+  <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href='/images/favicon.ico' rel='shortcut icon'>
+
+  <script src="/javascripts/all.js"></script>
+  
+<script type="text/javascript">
+  if (window.location.host === 'docs.pivotal.io') {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39702075-1']);
+    _gaq.push(['_setDomainName', 'pivotal.io']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  var blackList = ['acceptance'];
+
+  blackList.forEach(function(blackListedEnv) {
+    if (document.URL.indexOf(blackListedEnv) > -1 && blackListedEnv != "") {
+      $('head').append('<meta name="hashtag" content="PivotalMoment">');
+    }
+  });
+</script>
+
+<!-- CrazyEgg Tracking Script -->
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0055/2990.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+
+<!-- Munchkin Marketo Script -->
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+
+    function initMunchkin() {
+      if (didInit === false) {
+        didInit = true;
+        Munchkin.init('625-IUJ-009');
+      }
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+</head>
+
+<body class="pivotalcf pivotalcf_2-0 pivotalcf_2-0_pcf-release-notes pivotalcf_2-0_pcf-release-notes_windows-rn has-subnav">
+
+<div class="viewport">
+  <div class='wrap'>
+    <script type="text/javascript">
+      document.domain = "pivotal.io";
+    </script>
+
+      <header class="global-header header header-layout js-bar-links">
+    <a class="pivotal-logo" href="/">
+    </a>
+    <a href="/" class="global-header-title">
+      <span class="title-deemph">Pivotal</span> Documentation
+    </a>
+    <div class="btn-menu" data-behavior="MenuMobile"></div>
+    <div class="header-links">
+      <div class="header-item">
+        <a href="https://network.pivotal.io/">Downloads</a>
+      </div>
+      <div class="header-item">
+        <a href="http://support.pivotal.io" target="_blank">Support</a>
+      </div>
+
+      <div class="header-item embedded-searchbar">
+          <form method="get" action="/search">
+            <input name="q" placeholder="Search PCF Release Notes" class="search-box" />
+              <input type="hidden" name="product_name" value="PCF Metrics" />
+              <input type="hidden" name="product_version" value="2.0"/>
+          </form>
+      </div>
+      
+    </div>
+  </header>
+
+
+
+    <div class="container">
+
+      <!--googleoff: index-->
+      <div id="sub-nav" class="js-sidenav nav-container" role="navigation">
+  <a class="sidenav-title" data-behavior="SubMenuMobile">
+    Doc Index
+  </a>
+  <div class="nav-content">
+    <ul>
+    <li class="has_submenu">
+        <a href="/pivotalcf/2-0/pcf-release-notes/index.html">Release Notes</a>
+        <ul>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/breaking-changes.html">PCF v1.12 Breaking Changes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/runtime-rn.html">Pivotal Elastic Runtime Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/opsmanager-rn.html">Pivotal Operations Manager Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/windows-rn.html">PCF Runtime for Windows Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/segment-rn.html">PCF Isolation Segment Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/stemcell-rn.html">Stemcell Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/windows-stemcell-rn.html">Windows Stemcell Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/bbr-pcf-rn.html">BOSH Backup and Restore Release Notes</a>
+          </li>
+        </ul>
+  </div>
+</div><!--end of sub-nav-->
+
+      <!--googleon: index-->
+
+      <main class="content content-layout" id="js-content" role="main">
+        <a id="top"></a>
+          <div class="local-header title-container">
+    <div class="local-header version-info">
+      LATEST VERSION: 2.0 - <a href="">CHANGELOG</a>
+    </div>
+    <div class="local-header local-title clearfix">
+      <img src="/images/cloud_rings.png">
+      <span class="local-header-title">PCF Metrics
+      </span>
+      <span class="local-header local-version header-dropdown">
+        <a class="local-header header-dropdown-link">v2.0</a>
+        <span class="local-header header-dropdown-content">
+          <ul>
+          </ul>
+        </span>
+      </span>
+
+      <!-- search was here -->
+    </div>
+    <div class="local-header local-header-links">
+    </div>
+  </div>
+
+          <h1 class="title-container" >
+    PCF Runtime for Windows v1.12 Release Notes
+  </h1>
+
+          <div id="js-quick-links" >
+            <div class="quick-links"><ul>
+<li>
+<a href="#releases">Releases</a><ul><li><a href="#1.12.0">1.12.0</a></li></ul>
+</li>
+<li><a href="#upgrade">How to Upgrade</a></li>
+<li>
+<a href="#new-features">New Features in PCF Runtime for Windows v1.12</a><ul>
+<li><a href="#bosh-windows-ssh">BOSH SSH Support</a></li>
+<li><a href="#manage-windows-admin">Operators Can Manage the Windows Admin Password</a></li>
+<li><a href="#windows-logs">Windows Event Logs Consumable via Syslog</a></li>
+<li><a href="#metron-api">Improved Security</a></li>
+<li><a href="#app-id-creds">Application Instance Identity Credentials</a></li>
+<li><a href="#kms">KMS Host Configuration</a></li>
+<li><a href="#max-in-flight">Diego Cell Max-in-Flight Default</a></li>
+</ul>
+</li>
+<li><a href="#adv-features">About Advanced Features</a></li>
+</ul></div>
+          </div>
+        <div class="to-top" id="js-to-top">
+          <a href="#top" title="back to top"></a>
+        </div>
+        <p>Operators can install PCF Runtime for Windows on vSphere, Amazon Web Services
+(AWS), Google Cloud Platform (GCP), or Azure. See the
+<a href="../windows/deploy-windows.html">Deploying PCF Runtime for Windows</a> topic for more information.</p>
+
+<h2><a id='releases'></a> Releases</h2>
+
+<h3><a id='1.12.0'></a> 1.12.0</h3>
+
+<p><table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>1200.3</td>
+  </tr><tr>
+    <td>consul</td><td>173</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.1</td>
+  </tr><tr>
+    <td>event_log</td><td>0.2</td>
+  </tr><tr>
+    <td>garden-windows</td><td>0.7.0</td>
+  </tr><tr>
+    <td>hwc-offline-buildpack</td><td>2.3.8</td>
+  </tr><tr>
+    <td>loggregator</td><td>96</td>
+  </tr><tr>
+    <td>windows-utilities</td><td>0.3.0</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table></p>
+
+<h2><a id='upgrade'></a>How to Upgrade</h2>
+
+<p>The PCF Runtime for Windows v1.12 tile is available with the release of Pivotal
+Cloud Foundry (PCF) version v1.12. To use the PCF Runtime for Windows tile, you
+need Ops Manager v1.12.0 or later and Elastic Runtime v1.12.0 or later.</p>
+
+<p>For information about upgrading to PCF Runtime for Windows v1.12.0, see the
+<a href="../windows/upgrade-windows.html">Upgrading Windows Cells</a> topic in the PCF Runtime for Windows documentation.</p>
+
+<p class="note"><b>Note</b>: If your existing PCF v1.11.x installation includes both <b>PCF Runtime for Windows</b> and <b>MySQL for PCF v1.x</b>, you must upgrade to MySQL for PCF v1.10.3 or later 
+ before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for 
+ PCF, see the <a href="http://docs.pivotal.io/p-mysql/1-10/index.html">MySQL for PCF</a> documentation.</p>
+
+<h2><a id='new-features'></a> New Features in PCF Runtime for Windows v1.12</h2>
+
+<p>This section describes new features of the release.</p>
+
+<h3><a id='bosh-windows-ssh'></a>BOSH SSH Support</h3>
+
+<p>If operators select a checkbox when configuring the PCF Runtime for Windows 1.12 tile, users can SSH onto Windows VMs with the <code>bosh ssh</code> command. For more information, see the <a href="../windows/deploy-windows.html">Deploying PCF Runtime for Windows</a> topic.</p>
+
+<p class="note"><strong>Note</strong>: This feature is beta and not considered production-ready.</p>
+
+<h3><a id='manage-windows-admin'></a>Operators Can Manage the Windows Admin Password</h3>
+
+<p>Operators can now manage a password strategy for the Windows admin user on Windows VMs when configuring the PCF Runtime for Windows. They can use the Windows default password, specify a password, or generate random passwords for each VM. For more information, see the <a href="../windows/deploy-windows.html">Deploying PCF Runtime for Windows</a> topic.</p>
+
+<h3><a id='windows-logs'></a>Windows Event Logs Consumable via Syslog</h3>
+
+<p>Operators can now configure a syslog endpoint for Windows Event Logs in the PCF Runtime for Windows tile. Windows Events Logs provide a consolidated, system-level logging mechanism that is especially useful in troubleshooting problems with running applications. For more information, see the <a href="../windows/deploy-windows.html">Deploying PCF Runtime for Windows</a> topic.</p>
+
+<h3><a id='metron-api'></a>Improved Security</h3>
+
+<p>Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and ensures that Metrons in PCF Runtime for Windows are protected from spoofing attacks.</p>
+
+<h3><a id='app-id-creds'></a> Application Instance Identity Credentials</h3>
+
+<p>The instance identity system in Diego provides each app container with a PEM-encoded <a href="https://www.ietf.org/rfc/rfc5280.txt">X.509</a> certificate and <a href="https://tools.ietf.org/html/rfc3447">PKCS #1 RSA</a> private key. The values of the environment variables <code>CF_INSTANCE_CERT</code> and <code>CF_INSTANCE_KEY</code> contain the absolute paths to the certificate and private key files. The validity period is 3 years for the Instance Identity root and 2 years for the intermediate CA certificates.</p>
+
+<p>See the <a href="../security/networking/tls-info.html#container-creds">App Instance Container Identity Credentials</a> section for more information.</p>
+
+<h3><a id='kms'></a> KMS Host Configuration</h3>
+
+<p>Operators can configure their Windows VMs to register with and activate against an operator-defined KMS host via runtime configuration. See <a href="../windows/configure-kms.html">Configuring a KMS Host</a>.</p>
+
+<h3><a id='max-in-flight'></a> Diego Cell Max-in-Flight Default</h3>
+
+<p>This release lowers the default max-in-flight percentage on 
+Diego Cells to 4%. Previously, this value was set to 10%, which can cause the following issues in larger environments:</p>
+
+<ul>
+<li>Many simultaneous VM creates/deletes and BOSH blob updates placing
+significant stress on the underlying infrastructure, especially on vSphere
+which has a greater probability of being under-provisioned.</li>
+<li>Cells that are draining are no longer available for allocation, resulting
+in a 10% decrease in total memory and disk capacity during deployment. This
+can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads
+successfully.</li>
+</ul>
+
+<p>Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see <a href="../adminguide/diego-cell-upgrade.html">Managing Diego Cell Limits During Upgrade</a>.</p>
+
+<h2><a id='adv-features'></a> About Advanced Features</h2>
+
+<p>The <strong>Advanced Features</strong> pane of the PCF Runtime for Windows tile includes new
+functionality that may have certain constraints. Although these features are
+fully supported, Pivotal recommends caution when using them in production.</p>
+
+        <div><a id='repo-link' href='http://github.com/pivotal-cf/pcf-release-notes/tree/2.0/windows-rn.html.md.erb'>View the source for this page in GitHub</a></div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+  <a href='https://pivotal.io/privacy-policy'>Privacy Policy</a> | 
+  <a href='https://pivotal.io/terms-of-use'>Terms of Use</a><br/>
+  <a href='/'>Pivotal Documentation</a>
+  &copy; 2017 <a href='https://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+</div>
+<div class="support">
+  Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+</div>
+
+  </footer>
+</div><!--end of container-->
+
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>
+      PCF v1.12 Breaking Changes |
+    Pivotal Docs
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/all.css" rel="stylesheet" media="screen, print" />
+  <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href='/images/favicon.ico' rel='shortcut icon'>
+
+  <script src="/javascripts/all.js"></script>
+  
+<script type="text/javascript">
+  if (window.location.host === 'docs.pivotal.io') {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39702075-1']);
+    _gaq.push(['_setDomainName', 'pivotal.io']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  var blackList = ['acceptance'];
+
+  blackList.forEach(function(blackListedEnv) {
+    if (document.URL.indexOf(blackListedEnv) > -1 && blackListedEnv != "") {
+      $('head').append('<meta name="hashtag" content="PivotalMoment">');
+    }
+  });
+</script>
+
+<!-- CrazyEgg Tracking Script -->
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0055/2990.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+
+<!-- Munchkin Marketo Script -->
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+
+    function initMunchkin() {
+      if (didInit === false) {
+        didInit = true;
+        Munchkin.init('625-IUJ-009');
+      }
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+</head>
+
+<body class="pivotalcf pivotalcf_2-0 pivotalcf_2-0_pcf-release-notes pivotalcf_2-0_pcf-release-notes_breaking-changes has-subnav">
+
+<div class="viewport">
+  <div class='wrap'>
+    <script type="text/javascript">
+      document.domain = "pivotal.io";
+    </script>
+
+      <header class="global-header header header-layout js-bar-links">
+    <a class="pivotal-logo" href="/">
+    </a>
+    <a href="/" class="global-header-title">
+      <span class="title-deemph">Pivotal</span> Documentation
+    </a>
+    <div class="btn-menu" data-behavior="MenuMobile"></div>
+    <div class="header-links">
+      <div class="header-item">
+        <a href="https://network.pivotal.io/">Downloads</a>
+      </div>
+      <div class="header-item">
+        <a href="http://support.pivotal.io" target="_blank">Support</a>
+      </div>
+
+      <div class="header-item embedded-searchbar">
+          <form method="get" action="/search">
+            <input name="q" placeholder="Search PCF Release Notes" class="search-box" />
+              <input type="hidden" name="product_name" value="PCF Metrics" />
+              <input type="hidden" name="product_version" value="2.0"/>
+          </form>
+      </div>
+      
+    </div>
+  </header>
+
+
+
+    <div class="container">
+
+      <!--googleoff: index-->
+      <div id="sub-nav" class="js-sidenav nav-container" role="navigation">
+  <a class="sidenav-title" data-behavior="SubMenuMobile">
+    Doc Index
+  </a>
+  <div class="nav-content">
+    <ul>
+    <li class="has_submenu">
+        <a href="/pivotalcf/2-0/pcf-release-notes/index.html">Release Notes</a>
+        <ul>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/breaking-changes.html">PCF v1.12 Breaking Changes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/runtime-rn.html">Pivotal Elastic Runtime Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/opsmanager-rn.html">Pivotal Operations Manager Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/windows-rn.html">PCF Runtime for Windows Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/segment-rn.html">PCF Isolation Segment Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/stemcell-rn.html">Stemcell Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/windows-stemcell-rn.html">Windows Stemcell Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/bbr-pcf-rn.html">BOSH Backup and Restore Release Notes</a>
+          </li>
+        </ul>
+  </div>
+</div><!--end of sub-nav-->
+
+      <!--googleon: index-->
+
+      <main class="content content-layout" id="js-content" role="main">
+        <a id="top"></a>
+          <div class="local-header title-container">
+    <div class="local-header version-info">
+      LATEST VERSION: 2.0 - <a href="">CHANGELOG</a>
+    </div>
+    <div class="local-header local-title clearfix">
+      <img src="/images/cloud_rings.png">
+      <span class="local-header-title">PCF Metrics
+      </span>
+      <span class="local-header local-version header-dropdown">
+        <a class="local-header header-dropdown-link">v2.0</a>
+        <span class="local-header header-dropdown-content">
+          <ul>
+          </ul>
+        </span>
+      </span>
+
+      <!-- search was here -->
+    </div>
+    <div class="local-header local-header-links">
+    </div>
+  </div>
+
+          <h1 class="title-container" >
+    PCF v1.12 Breaking Changes
+  </h1>
+
+          <div id="js-quick-links" >
+            <div class="quick-links"><ul>
+<li>
+<a href="#elastic-runtime">Elastic Runtime</a><ul>
+<li><a href="#cc-bridge">Cloud Controller Bridge</a></li>
+<li><a href="#internal-creds">Internal Elastic Runtime Credentials</a></li>
+<li><a href="#postgres">Postgres</a></li>
+<li><a href="#mysql-windows">MySQL for PCF and PCF Runtime for Windows</a></li>
+</ul>
+</li>
+<li>
+<a href="#ops-man">Ops Manager</a><ul>
+<li><a href="#bosh-2">BOSH CLI v2</a></li>
+<li><a href="#director-certificates">Director Certificate Rotation</a></li>
+<li><a href="#log-search-unsupported">PCF Log Search</a></li>
+</ul>
+</li>
+</ul></div>
+          </div>
+        <div class="to-top" id="js-to-top">
+          <a href="#top" title="back to top"></a>
+        </div>
+        <p>This topic describes the breaking changes you need to be aware of when upgrading to Pivotal Cloud Foundry (PCF) v1.12. For more information about important preparation steps you must follow before beginning an upgrade, see <a href="../customizing/upgrading-pcf.html">Upgrading Pivotal Cloud Foundry</a>.</p>
+
+<h2><a id='elastic-runtime'></a> Elastic Runtime</h2>
+
+<h3><a id='cc-bridge'></a> Cloud Controller Bridge</h3>
+
+<p>In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge component, which translated Cloud Controller requests into Diego API commands. The Cloud Controller Bridge conveyed communications between the Cloud Controller and Diego over plain-text HTTP.</p>
+
+<p>In PCF v.1.12, the <strong>Enable secure communication between Diego and Cloud Controller</strong> option in the <strong>Cloud Controller</strong> pane of the Elastic Runtime tile allows you to enable direct communications between the Cloud Controller and Diego over secure TLS and deactivate the Cloud Controller Bridge. If you deploy a fresh installation of PCF v1.12, the <strong>Enable</strong> checkbox is selected by default.</p>
+
+<p>For <a href="../customizing/upgrading-pcf.html#cc">upgrades</a>, if you want to use this new feature, you must manually select the <strong>Enable</strong> checkbox after the upgrade is complete and then click <strong>Apply Changes</strong>. Selecting the checkbox before the upgrade results in API downtime.</p>
+
+<h3><a id='internal-creds'></a> Internal Elastic Runtime Credentials</h3>
+
+<p>The internal credentials that Elastic Runtime uses for inter-component communication are now generated and stored in CredHub instead of Ops Manager. For a list of the credentials migrated to CredHub, see <a href="/pivotalcf/2-0/pcf-release-notes/runtime-rn.html#credhub">Pivotal Elastic Runtime Release Notes</a>.</p>
+
+<p>If you want to access these credentials, you must use the CredHub CLI or the Ops Manager API instead of the <strong>Credentials</strong> tab of the Elastic Runtime tile.</p>
+
+<h3><a id='postgres'></a> Postgres</h3>
+
+<p>This release removes the legacy Postgres database VMs for the Cloud Controller and UAA. If your deployment was originally installed before PCF 1.6 and still uses Postgres, you must contact your dedicated Support Engineer or Platform Architect for assistance in migrating your Cloud Controller and UAA databases to MySQL. They have access to the PostgreSQL-to-MySQL Migrator tool and instructions on Pivotal Network.</p>
+
+<p>If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the upgrade fails. For more information, see <a href="../customizing/upgrading-pcf.html#postgres">Migrate the CC and UAA Databases from Postgres to MySQL</a>.</p>
+
+<h3><a id='mysql-windows'></a> MySQL for PCF and PCF Runtime for Windows</h3>
+
+<p>If your existing PCF v1.11.x installation includes both <a href="../windows/index.html">PCF Runtime for Windows</a> and MySQL for PCF v1.x, you must upgrade to MySQL for PCF v1.10.3 or later before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for PCF, see the <a href="http://docs.pivotal.io/p-mysql/1-10/index.html">MySQL for PCF</a> documentation.</p>
+
+<p>If you do not upgrade MySQL for PCF, the upgrade fails. For more information, see <a href="../customizing/upgrading-pcf.html#upgrade-mysql">Upgrade MySQL for PCF</a>.</p>
+
+<h2><a id='ops-man'></a> Ops Manager</h2>
+
+<h3><a id='bosh-2'></a>BOSH CLI v2</h3>
+
+<p>Ops Manager v1.12.0 uses the BOSH Command Line Interface (CLI) v2. In v2, the formatting of the CLI output has changed. If your deployment uses scripts that rely on BOSH output, you must refactor them to interpret the command output of the BOSH CLI v2. For more information about the BOSH CLI v2, see <a href="/pivotalcf/2-0/pcf-release-notes/opsmanager-rn.html#bosh2">Pivotal Operations Manager Release Notes</a>.</p>
+
+<h3><a id='director-certificates'></a>Director Certificate Rotation</h3>
+
+<p>If your original Elastic Runtime deployment was PCF 1.6 or earlier, you must regenerate the non-configurable Director certificates to deploy CredHub. During a deploy, CredHub attempts to verify the connection to UAA on the BOSH Director with the Ops Manager certificate Subject Alternative Name (SAN). Ops Manager 1.6 and earlier generated non-configurable certificate SANs in a format that CredHub does not understand. For more information, see <a href="/pivotalcf/2-0/pcf-release-notes/opsmanager-rn.html#credhub-certs">CredHub Requires Director Certificate Rotation</a>.</p>
+
+<h3><a id='log-search-unsupported'></a>PCF Log Search</h3>
+
+<p>PCF Log Search is not compatible with PCF v1.12. If your deployment contains PCF Log Search, you must remove the product tile before upgrading to PCF v1.12. Failure to remove this product prior to the upgrade may cause issues with your deployment.</p>
+
+<p>For more information, see the <a href="../customizing/upgrading-pcf.html">Upgrading Pivotal Cloud Foundry</a> topic.</p>
+
+        <div><a id='repo-link' href='http://github.com/pivotal-cf/pcf-release-notes/tree/2.0/breaking-changes.html.md.erb'>View the source for this page in GitHub</a></div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+  <a href='https://pivotal.io/privacy-policy'>Privacy Policy</a> | 
+  <a href='https://pivotal.io/terms-of-use'>Terms of Use</a><br/>
+  <a href='/'>Pivotal Documentation</a>
+  &copy; 2017 <a href='https://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+</div>
+<div class="support">
+  Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+</div>
+
+  </footer>
+</div><!--end of container-->
+
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400italic,400,600' rel='stylesheet' type='text/css'>
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>
+      Pivotal Elastic Runtime v1.12 Release Notes |
+    Pivotal Docs
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/all.css" rel="stylesheet" media="screen, print" />
+  <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href='/images/favicon.ico' rel='shortcut icon'>
+
+  <script src="/javascripts/all.js"></script>
+  
+<script type="text/javascript">
+  if (window.location.host === 'docs.pivotal.io') {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39702075-1']);
+    _gaq.push(['_setDomainName', 'pivotal.io']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+
+<script type="text/javascript">
+  var blackList = ['acceptance'];
+
+  blackList.forEach(function(blackListedEnv) {
+    if (document.URL.indexOf(blackListedEnv) > -1 && blackListedEnv != "") {
+      $('head').append('<meta name="hashtag" content="PivotalMoment">');
+    }
+  });
+</script>
+
+<!-- CrazyEgg Tracking Script -->
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0055/2990.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+
+<!-- Munchkin Marketo Script -->
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+
+    function initMunchkin() {
+      if (didInit === false) {
+        didInit = true;
+        Munchkin.init('625-IUJ-009');
+      }
+    }
+
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = document.location.protocol + '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+</head>
+
+<body class="pivotalcf pivotalcf_2-0 pivotalcf_2-0_pcf-release-notes pivotalcf_2-0_pcf-release-notes_runtime-rn has-subnav">
+
+<div class="viewport">
+  <div class='wrap'>
+    <script type="text/javascript">
+      document.domain = "pivotal.io";
+    </script>
+
+      <header class="global-header header header-layout js-bar-links">
+    <a class="pivotal-logo" href="/">
+    </a>
+    <a href="/" class="global-header-title">
+      <span class="title-deemph">Pivotal</span> Documentation
+    </a>
+    <div class="btn-menu" data-behavior="MenuMobile"></div>
+    <div class="header-links">
+      <div class="header-item">
+        <a href="https://network.pivotal.io/">Downloads</a>
+      </div>
+      <div class="header-item">
+        <a href="http://support.pivotal.io" target="_blank">Support</a>
+      </div>
+
+      <div class="header-item embedded-searchbar">
+          <form method="get" action="/search">
+            <input name="q" placeholder="Search PCF Release Notes" class="search-box" />
+              <input type="hidden" name="product_name" value="PCF Metrics" />
+              <input type="hidden" name="product_version" value="2.0"/>
+          </form>
+      </div>
+      
+    </div>
+  </header>
+
+
+
+    <div class="container">
+
+      <!--googleoff: index-->
+      <div id="sub-nav" class="js-sidenav nav-container" role="navigation">
+  <a class="sidenav-title" data-behavior="SubMenuMobile">
+    Doc Index
+  </a>
+  <div class="nav-content">
+    <ul>
+    <li class="has_submenu">
+        <a href="/pivotalcf/2-0/pcf-release-notes/index.html">Release Notes</a>
+        <ul>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/breaking-changes.html">PCF v1.12 Breaking Changes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/runtime-rn.html">Pivotal Elastic Runtime Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/opsmanager-rn.html">Pivotal Operations Manager Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/windows-rn.html">PCF Runtime for Windows Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/segment-rn.html">PCF Isolation Segment Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/stemcell-rn.html">Stemcell Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/windows-stemcell-rn.html">Windows Stemcell Release Notes</a>
+          </li>
+          <li class="">
+            <a href="/pivotalcf/2-0/pcf-release-notes/bbr-pcf-rn.html">BOSH Backup and Restore Release Notes</a>
+          </li>
+        </ul>
+  </div>
+</div><!--end of sub-nav-->
+
+      <!--googleon: index-->
+
+      <main class="content content-layout" id="js-content" role="main">
+        <a id="top"></a>
+          <div class="local-header title-container">
+    <div class="local-header version-info">
+      LATEST VERSION: 2.0 - <a href="">CHANGELOG</a>
+    </div>
+    <div class="local-header local-title clearfix">
+      <img src="/images/cloud_rings.png">
+      <span class="local-header-title">PCF Metrics
+      </span>
+      <span class="local-header local-version header-dropdown">
+        <a class="local-header header-dropdown-link">v2.0</a>
+        <span class="local-header header-dropdown-content">
+          <ul>
+          </ul>
+        </span>
+      </span>
+
+      <!-- search was here -->
+    </div>
+    <div class="local-header local-header-links">
+    </div>
+  </div>
+
+          <h1 class="title-container" >
+    Pivotal Elastic Runtime v1.12 Release Notes
+  </h1>
+
+          <div id="js-quick-links" >
+            <div class="quick-links"><ul>
+<li>
+<a href="#releases">Releases</a><ul><li><a href="#1.12.0">1.12.0</a></li></ul>
+</li>
+<li><a href="#upgrade">How to Upgrade</a></li>
+<li>
+<a href="#new-features">New Features in Elastic Runtime v1.12.0</a><ul>
+<li><a href="#multi-buildpack">Multiple Buildpack App Support</a></li>
+<li><a href="#credhub">Migration of Internal Credentials to CredHub</a></li>
+<li><a href="#groot">Introducing GrootFS</a></li>
+<li><a href="#app-id-creds">Application Instance Identity Credentials</a></li>
+<li><a href="#networking-poe">Simplified TLS Configuration</a></li>
+<li><a href="#app-header">Mutual TLS Headers on Inbound Application Traffic</a></li>
+<li><a href="#cc-diego">Secure Communication Between Cloud Controller and Diego</a></li>
+<li><a href="#diego-metron">Secure Communication Between Diego and Loggregator</a></li>
+<li><a href="#scaling-loggregator">Scaling Loggregator</a></li>
+<li><a href="#haproxy-release">HAProxy Release</a></li>
+<li><a href="#request-filtering">HAProxy Request Filtering</a></li>
+<li><a href="#c2c">Container-to-Container Networking Updates</a></li>
+<li><a href="#app-traffic">Support for Logging All App Traffic</a></li>
+<li><a href="#orpha-blobs">Orphaned Blob Cleanup</a></li>
+<li><a href="#sharding">Router Sharding Mode</a></li>
+<li><a href="#max-conn">Gorouter Max Connection Configuration</a></li>
+<li><a href="#gcr">Authenticating with Google Container Registry (GCR) to Push Docker Images</a></li>
+<li><a href="#ldap-volume">NFSV3 Volume Services with LDAP</a></li>
+<li><a href="#mysql-metrics">Metrics for MySQL</a></li>
+<li><a href="#cloudform">CloudFormation Template Improvements</a></li>
+<li><a href="#max-in-flight">Diego Cell Max-in-Flight Default</a></li>
+<li><a href="#etcd-gone">Removal of etcd</a></li>
+<li><a href="#postgres-gone">Removal of Postgres</a></li>
+<li><a href="#in-context-service">Apps Manager: In-context Service Creation</a></li>
+<li><a href="#service-config-discovery">Apps Manager: Service Configuration Parameter Discovery</a></li>
+</ul>
+</li>
+<li>
+<a href="#knownissues">Known Issues</a><ul>
+<li><a href="#credhub-restart">Manual CredHub Restart Required During an Elastic Runtime Redeploy</a></li>
+<li><a href="#autoscaler">Lack of Autoscaler Scaling</a></li>
+</ul>
+</li>
+<li><a href="#adv-features">About Advanced Features</a></li>
+</ul></div>
+          </div>
+        <div class="to-top" id="js-to-top">
+          <a href="#top" title="back to top"></a>
+        </div>
+        <p>Pivotal Cloud Foundry is certified by the Cloud Foundry Foundation for 2017.</p>
+
+<p>Read more about the <a href="https://www.cloudfoundry.org/provider-faq/">certified provider
+program</a> and the <a href="https://www.cloudfoundry.org/provider-requirements/">requirements of
+providers</a>.</p>
+
+<p><hr></p>
+
+<h2><a id='releases'></a> Releases</h2>
+
+<h3><a id='1.12.0'></a> 1.12.0</h3>
+
+<h4><a id='component-versions'></a> Component Versions</h4>
+
+<p><table border="1" class="nice">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stemcell</td><td>3445.7</td>
+  </tr><tr>
+    <td>binary-offline-buildpack</td><td>1.0.14</td>
+  </tr><tr>
+    <td>capi</td><td>1.40.0*</td>
+  </tr><tr>
+    <td>cf-autoscaling</td><td>95</td>
+  </tr><tr>
+    <td>cf-backup-and-restore</td><td>0.0.9</td>
+  </tr><tr>
+    <td>cf-mysql</td><td>36.5.0</td>
+  </tr><tr>
+    <td>cf-networking</td><td>1.4.0</td>
+  </tr><tr>
+    <td>cf-smoke-tests</td><td>38</td>
+  </tr><tr>
+    <td>cflinuxfs2</td><td>1.146.0</td>
+  </tr><tr>
+    <td>consul</td><td>173</td>
+  </tr><tr>
+    <td>diego</td><td>1.25.1</td>
+  </tr><tr>
+    <td>dotnet-core-offline-buildpack</td><td>1.0.23</td>
+  </tr><tr>
+    <td>garden-runc</td><td>1.9.3</td>
+  </tr><tr>
+    <td>go-offline-buildpack</td><td>1.8.6</td>
+  </tr><tr>
+    <td>grootfs</td><td>0.25.0</td>
+  </tr><tr>
+    <td>haproxy</td><td>8.4.0</td>
+  </tr><tr>
+    <td>java-offline-buildpack</td><td>4.5</td>
+  </tr><tr>
+    <td>loggregator</td><td>96</td>
+  </tr><tr>
+    <td>mysql-backup</td><td>1.35.0</td>
+  </tr><tr>
+    <td>mysql-monitoring</td><td>8.8.0</td>
+  </tr><tr>
+    <td>nats</td><td>22</td>
+  </tr><tr>
+    <td>nfs-volume</td><td>1.0.9</td>
+  </tr><tr>
+    <td>nodejs-offline-buildpack</td><td>1.6.4</td>
+  </tr><tr>
+    <td>notifications</td><td>37</td>
+  </tr><tr>
+    <td>notifications-ui</td><td>29</td>
+  </tr><tr>
+    <td>php-offline-buildpack</td><td>4.3.39</td>
+  </tr><tr>
+    <td>pivotal-account</td><td>1.6.1</td>
+  </tr><tr>
+    <td>push-apps-manager-release</td><td>662.0.11</td>
+  </tr><tr>
+    <td>push-usage-service-release</td><td>663.0.2</td>
+  </tr><tr>
+    <td>python-offline-buildpack</td><td>1.5.22</td>
+  </tr><tr>
+    <td>routing</td><td>0.162.0</td>
+  </tr><tr>
+    <td>ruby-offline-buildpack</td><td>1.6.46</td>
+  </tr><tr>
+    <td>scalablesyslog</td><td>10</td>
+  </tr><tr>
+    <td>service-backup</td><td>18.1.2</td>
+  </tr><tr>
+    <td>staticfile-offline-buildpack</td><td>1.4.12</td>
+  </tr><tr>
+    <td>statsd-injector</td><td>1.0.29</td>
+  </tr><tr>
+    <td>syslog-migration</td><td>8</td>
+  </tr><tr>
+    <td>uaa</td><td>45</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2"><em>* Components marked with an asterisk have been patched to resolve security vulnerabilities or fix component behavior.</em></td>
+  </tr>
+  </tfoot>
+  </table></p>
+
+<h2><a id='upgrade'></a> How to Upgrade</h2>
+
+<p>The procedure for upgrading to Pivotal Cloud Foundry (PCF) Elastic Runtime v1.12 is
+documented in the <a href="../customizing/upgrading-pcf.html">Upgrading Pivotal Cloud
+Foundry</a> topic.</p>
+
+<p>When upgrading to v1.12, be aware of the following upgrade considerations:</p>
+
+<ul>
+<li>You must upgrade first to a version of Elastic Runtime v1.11.x to
+successfully upgrade to v1.12.</li>
+<li><p>If your existing PCF v1.11.x installation includes both <a href="../windows/index.html">PCF Runtime 
+for Windows</a> and MySQL for PCF v1.x, you must upgrade to MySQL for PCF v1.10.3 or later 
+before you upgrade to PCF Elastic Runtime v1.12. For instructions on how to upgrade MySQL for 
+PCF, see the 
+<a href="http://docs.pivotal.io/p-mysql/1-10/index.html">MySQL for PCF</a> documentation.</p></li>
+<li><p>Some partner service tiles may be incompatible with PCF v1.12. Pivotal is
+working with partners to ensure their tiles are being updated to work with the
+latest versions of PCF.<br/><br/> For information about which partner service
+releases are currently compatible with PCF v1.12, review the appropriate
+partners services release documentation at
+<a href="https://docs.pivotal.io">https://docs.pivotal.io</a>, or contact the partner
+organization that produces the tile.</p></li>
+</ul>
+
+<h2><a id='new-features'></a> New Features in Elastic Runtime v1.12.0</h2>
+
+<p>This section describes new features of the release.</p>
+
+<h3><a id='multi-buildpack'></a> Multiple Buildpack App Support</h3>
+
+<p>Developers can now push apps that take advantage of multiple buildpacks simultaneously. You can upgrade apps to use multiple buildpacks with the <a href="../buildpacks/use-multiple-buildpacks.html"><code>cf v3-push</code> command</a>. This makes binaries, libraries, and language modules provided by all specified buildpacks available to the app. The final buildpack specified controls how the app starts.</p>
+
+<p>Multiple buildpack support adds flexibility to the Cloud Foundry app development model. You can now use the official Cloud Foundry buildpacks together to support polyglot (multiple language) apps. Additionally, you can specify <a href="../buildpacks/developing-buildpacks.html">custom buildpacks</a> before official Cloud Foundry buildpacks to supply dependencies that previously had to be provided with apps.</p>
+
+<h3><a id='credhub'></a> Migration of Internal Credentials to CredHub</h3>
+
+<p>Internal credentials, the <code>secret</code> and <code>simple_credentials</code> that Elastic Runtime uses for inter-component communication, are generated and stored in CredHub instead of Ops Manager. This is part of an ongoing effort to migrate all credentials to CredHub, which will reduce the amount of places credentials are stored, aid in credential rotation, and increase security.  </p>
+
+<p>If you want to access the following credentials, you must use the CredHub CLI or the Ops Manager API instead of the <strong>Credentials</strong> tab of the Elastic Runtime tile. For instructions on how to to retrieve Elastic Runtime credentials, see <a href="../customizing/credentials.html">Retrieving Credentials from Your Deployment</a>.</p>
+
+<ul>
+<li><code>.mysql.autoscale_credentials</code></li>
+<li><code>.mysql.ccdb_credentials</code></li>
+<li><code>.mysql.diag_agent_credentials</code></li>
+<li><code>.mysql.diegodb_credentials</code></li>
+<li><code>.mysql.locketdb_credentials</code></li>
+<li><code>.mysql.monitordb_credentials</code></li>
+<li><code>.mysql.mysql_backup_server_credentials</code></li>
+<li><code>.mysql.mysql_bootstrap_credentials</code></li>
+<li><code>.mysql.networkpolicyserverdb_credentials</code></li>
+<li><code>.mysql.nfsvolume_credentials</code></li>
+<li><code>.mysql.notifications_credentials</code></li>
+<li><code>.mysql.pivotal_account_credentials</code></li>
+<li><code>.mysql.routingdb_credentials</code></li>
+<li><code>.mysql.silkdb_credentials</code></li>
+<li><code>.mysql.uaadb_credentials</code></li>
+<li><code>.nfsbrokerpush.nfs_broker_push_credentials</code></li>
+<li><code>.cloud_controller.bulk_api_credentials</code></li>
+<li><code>.cloud_controller.internal_api_user_credentials</code></li>
+<li><code>.cloud_controller.staging_upload_credentials</code></li>
+<li><code>.mysql.app_usage_credentials</code></li>
+<li><code>.mysql.cluster_health_user</code></li>
+<li><code>.mysql.galera_sidecar_user</code></li>
+<li><code>.mysql.mysql_admin_credentials</code></li>
+<li><code>.mysql_proxy.dashboard_credentials</code></li>
+<li><code>.nfs_server.blobstore_credentials</code></li>
+<li><code>.router.status_credentials</code></li>
+</ul>
+
+<h3><a id='groot'></a> Introducing GrootFS</h3>
+
+<p>GrootFS is the new container image management plugin for Garden-runC.
+It helps with the filesystem isolation of Garden-runC containers,
+image caching,
+and disk quota enforcement.
+GrootFS replaces the previous built-in functionality,
+which used an obsolete layer filesystem (AUFS)
+that lacks support from the Linux Kernel community.
+Additionally, GrootFS uses <a href="https://www.opencontainers.org/">OCI</a> standards
+for <a href="http://github.com/opencontainers/image-spec">container images</a>.</p>
+
+<p>For more information about GrootFS in PCF, see the following topics:</p>
+
+<ul>
+<li><a href="../concepts/container-security.html#mechanics">Understanding Container Security</a></li>
+<li><a href="../concepts/architecture/garden.html#garden-rootfs">Component: Garden</a></li>
+</ul>
+
+<h3><a id='app-id-creds'></a> Application Instance Identity Credentials</h3>
+
+<p>The instance identity system in Diego provides each app container with a PEM-encoded <a href="https://www.ietf.org/rfc/rfc5280.txt">X.509</a> certificate and <a href="https://tools.ietf.org/html/rfc3447">PKCS #1 RSA</a> private key. The values of the environment variables <code>CF_INSTANCE_CERT</code> and <code>CF_INSTANCE_KEY</code> contain the absolute paths to the certificate and private key files. The validity period is 3 years for the Instance Identity root and 2 years for the intermediate CA certificates.</p>
+
+<p>See the <a href="../security/networking/tls-info.html#container-creds">App Instance Container Identity Credentials</a> section for more information.</p>
+
+<h3><a id='networking-poe'></a> Simplified TLS Configuration</h3>
+
+<p>The point of entry options on the Elastic Runtime <strong>Networking</strong> pane have been restructured to be
+more understandable and flexible.  Operators no longer need to configure
+the Router or HAProxy separately as both components are configured using
+the same options. This includes the following changes:</p>
+
+<ul>
+<li>Gorouter and HAProxy always listen for TLS requests. You provide an SSL certificate for both Gorouter and HAProxy using a single field. </li>
+<li>HAProxy forwards all requests to Gorouter over TLS by default. You can optionally disable this feature. </li>
+<li>You can configure the minimum version of TLS for Gorouter and HAProxy with a single field. </li>
+<li>You can provide a list of CAs to HAProxy for it to validate the Gorouter certificate. </li>
+<li>You can optionally disable the HTTP listener for both Gorouter and HAProxy with a single checkbox. </li>
+<li>You can specify TLS cipher suites for HAProxy and Gorouter independently.</li>
+</ul>
+
+<p>See the Elastic Runtime <a href="../customizing/gcp-er-config.html#networking">installation instructions</a> for your IaaS for more information.</p>
+
+<h3><a id='app-header'></a> Mutual TLS Headers on Inbound Application Traffic</h3>
+
+<p>Gorouter can now forward the <code>X-Forwarded-Client-Cert</code> header to app
+instances when provided. Alternatively, operators can configure Gorouter to
+forward the header only when the mutual TLS connection from the client can be
+validated. Additionally, operators may now configure Gorouter to overwrite the
+XFCC header with the client certificate received in mTLS handshakes.</p>
+
+<p>This configuration is available in the <strong>Networking</strong> pane under <strong>Configure the CF Router support for the X-Forwarded-Client-Cert header</strong>. See the Elastic Runtime <a href="../customizing/gcp-er-config.html#networking">installation instructions</a> for your IaaS for more information.</p>
+
+<h3><a id='cc-diego'></a> Secure Communication Between Cloud Controller and Diego</h3>
+
+<p>In previous versions of PCF, the Diego Brain VM ran the Cloud Controller Bridge
+component, which translated Cloud Controller requests into Diego API commands.
+The Cloud Controller Bridge conveyed communications between the Cloud
+Controller and Diego over plaintext HTTP. In PCF v1.12, the Cloud Controller
+and Diego communicate directly via secure TLS protocol. This change streamlines
+and secures internal communications, and removes the Cloud Controller Bridge.</p>
+
+<p>Securing this communication path will require a second deployment after
+completing your upgrade to PCF v1.12. Follow the steps in our <a href="../customizing/upgrading-pcf.html#cc">upgrade guide</a> to
+secure your PCF installation.</p>
+
+<h3><a id='diego-metron'></a> Secure Communication Between Diego and Loggregator</h3>
+
+<p>Diego Cells now use the Metron API v2. This gRPC-based API supports mutual TLS authentication and secures the communication path between the Diego <code>rep</code> and Loggregator.</p>
+
+<h3><a id='scaling-loggregator'></a> Scaling Loggregator</h3>
+
+<p>As part of this release, the Loggregator team has provided guidelines for scaling the Loggregator system. For more information, see <a href="../loggregator/log-ops-guide.html#scaling">Scaling Loggregator</a> and <a href="../loggregator/log-ops-guide.html#scaling-nozzles">Scaling Nozzles</a> and <a href="https://github.com/cloudfoundry/loggregator/blob/develop/README.md#operator-guidebook">Operator Guidebook</a>.</p>
+
+<h3><a id='haproxy-release'></a> HAProxy Release</h3>
+
+<p>This release removes the old HAProxy job, which was the last remaining component from <code>cf-release</code>. It now uses the newly incubated
+<a href="https://github.com/cloudfoundry-incubator/haproxy-boshrelease">haproxy-boshrelease</a>. This replacement allows Elastic Runtime to expose new HAProxy features, such as <a href="#request-filtering">request filtering</a>. </p>
+
+<h3><a id='request-filtering'></a> HAProxy Request Filtering</h3>
+
+<p>If your PCF deployment uses HAProxy and you want it to receive traffic only from specific sources, you can use the <strong>Protected Domains</strong> and <strong>Trusted CIDRs</strong> fields in the <strong>Networking Pane</strong> of the Elastic Runtime tile. A key use case for this feature is when a deployment must only allow requests to the system domain from a private network or VPN. See the Elastic Runtime <a href="../customizing/gcp-er-config.html#networking">installation instructions</a> for your IaaS for more information. </p>
+
+<h3><a id='c2c'></a> Container-to-Container Networking Updates</h3>
+
+<p>Container-to-container networking is now always enabled. The commands are integrated with the cf CLI and now include the option to specify a port range when adding and removing policies. See <a href="../devguide/deploy-apps/cf-networking.html#create-policies">Create Policies for Container-to-Container Networking</a>. </p>
+
+<h3><a id='app-traffic'></a> Support for Logging All App Traffic</h3>
+
+<p>Operators can enable logging of all accepted and denied packets due to ASGs or container-to-container networking policies. This provides more visibility into app traffic, including denied traffic.</p>
+
+<p>Operators configure this global logging in the <strong>Networking</strong> pane of the Elastic Runtime tile under the <strong>Log traffic for all accepted/denied application packets</strong> field. See the <a href="../opsguide/logging-config-opsman.html#app-traffic-log">App Traffic Logging</a> section for more information. </p>
+
+<h3><a id='orpha-blobs'></a> Orphaned Blob Cleanup</h3>
+
+<p>The Cloud Controller now scans the blobstore on a regular interval to identify and remove orphaned blobs. For more information, see the <a href="../concepts/architecture/cloud-controller.html#blob-store">Blobstore</a> section of the <em>Cloud Controller</em> topic. </p>
+
+<h3><a id='sharding'></a> Router Sharding Mode</h3>
+
+<p>This release includes support for router sharding between the Elastic Runtime and Isolation Segment tiles. Operators can choose to have the Elastic Runtime tile
+routers only acknowledge requests from apps deployed within the its
+Cells, or reject requests for any isolation segment. </p>
+
+<p>You can configure this feature using the following fields:</p>
+
+<ul>
+<li>Elastic Runtime tile: <strong>Routers reject requests for Isolation Segments</strong> checkbox</li>
+<li>Isolation Segment tile: <strong>Router Sharding Mode</strong> selector</li>
+</ul>
+
+<p>See the Elastic Runtime <a href="../customizing/gcp-er-config.html#networking">installation instructions</a> for your IaaS for more information.</p>
+
+<h3><a id='max-conn'></a> Gorouter Max Connection Configuration</h3>
+
+<p>Operators can limit the number of app instance connections to the backend using the <strong>Max Connections Per Backend</strong> field in the <strong>Networking</strong> pane of the Elastic Runtime tile. This field can help prevent malicious apps from consuming all available Gorouter resources. See the Elastic Runtime <a href="../customizing/gcp-er-config.html#networking">installation instructions</a> for your IaaS for more information. </p>
+
+<h3><a id='gcr'></a> Authenticating with Google Container Registry (GCR) to Push Docker Images</h3>
+
+<p>For PCF v1.12 and later, Pivotal recommends authenticating with GCR using the procedure documented in the following section: <a href="../devguide/deploy-apps/push-docker.html#gcr">Push a Docker Image from Google Container Registry (GCR)</a>. The alternative authentication mechanism provided by GCR passes a short lived (12 hours) access token to PCF. This enables PCF to pull images from GCR during the initial <code>cf push</code>, but subsequent <code>restage</code>, <code>push</code>, or rescheduling operations fail once the access token expires.</p>
+
+<h3><a id='ldap-volume'></a> NFSV3 Volume Services with LDAP</h3>
+
+<p>Operators can now configure LDAP for NFSv3 volume services. Using LDAP secures the NFSV3 volume service by preventing a developer from binding to an NFS share using an
+arbitrary UID and potentially gaining access to sensitive data stored by another user or app. If you enable LDAP support, 
+ developers must provide credentials for any user they wish
+to bind as. See <a href="../opsguide/enable-vol-services.html">Enabling NFS Volume Services</a>. </p>
+
+<h3><a id='mysql-metrics'></a> Metrics for MySQL</h3>
+
+<p>The internal MySQL job included in Elastic Runtime now emits metrics. See the <a href="../monitoring/kpi.html#kpi4MySQL">Elastic Runtime MySQL KPIs</a>.</p>
+
+<h3><a id='cloudform'></a> CloudFormation Template Improvements</h3>
+
+<p>This release includes an improved CloudFormation template file available with the Elastic Runtime tile on <a href="https://network.pivotal.io">Pivotal Network</a>. The new template creates three availability zones, a load balancer for TCP routing, and the Ops Manager VM. For updated installation instructions, see <a href="../customizing/cloudform-install.html">Installing PCF on AWS Using CloudFormation</a>.</p>
+
+<h3><a id='max-in-flight'></a> Diego Cell Max-in-Flight Default</h3>
+
+<p>This release lowers the default max-in-flight percentage on 
+Diego Cells to 4%. Previously, this value was set to 10%, which can cause the following issues in larger environments:</p>
+
+<ul>
+<li>Many simultaneous VM creates/deletes and BOSH blob updates placing
+significant stress on the underlying infrastructure, especially on vSphere
+which has a greater probability of being under-provisioned.</li>
+<li>Cells that are draining are no longer available for allocation, resulting
+in a 10% decrease in total memory and disk capacity during deployment. This
+can cause deployments to no longer have sufficient total capacity to run all work, or to have insufficient headroom to place larger workloads
+successfully.</li>
+</ul>
+
+<p>Operators can still use the Ops Manager API to configure this setting to fit their needs. For more information about this property, see <a href="../adminguide/diego-cell-upgrade.html">Managing Diego Cell Limits During Upgrade</a>.</p>
+
+<h3><a id='etcd-gone'></a> Removal of etcd</h3>
+
+<p>This release removes the <code>etcd</code> server VMs from the PCF deployment.  Operators
+must ensure they are deploying service tiles that are known to be compatible
+with PCF Elastic Runtime 1.12.</p>
+
+<h3><a id='postgres-gone'></a> Removal of Postgres</h3>
+
+<p>This release removes the legacy Postgres databases for the Cloud Controller and
+UAA.  If your deployment was originally installed before PCF 1.6 and still uses
+Postgres, you must contact your dedicated Support Engineer or Platform
+Architect for assistance migrating your Cloud Controller and UAA databases to
+MySQL. They will have access to the PostgreSQL-to-MySQL Migrator tool and
+instructions on Pivotal Network.</p>
+
+<p>If you do not migrate to MySQL before upgrading to Elastic Runtime 1.12, the
+upgrade will fail.</p>
+
+<h3><a id='in-context-service'></a>Apps Manager: In-context Service Creation</h3>
+
+<p>Developers can create services without leaving the app or space view for an accelerated workflow.</p>
+
+<h3><a id='service-config-discovery'></a>Apps Manager: Service Configuration Parameter Discovery</h3>
+
+<p>When creating a new service in Apps Manager, developers can discover additional parameter options as fields, or a JSON editor that enables them to define the parameters.</p>
+
+<h2><a id='knownissues'></a> Known Issues</h2>
+
+<h3><a id='credhub-restart'></a> Manual CredHub Restart Required During an Elastic Runtime Redeploy</h3>
+
+<p>In Elastic Runtime v1.12.0, the BOSH Backup and Restore (BBR) script does not restart the CredHub process. When following the <a href="../customizing/backup-restore/restore-pcf-bbr.html#redeploy-ert">Restoring Pivotal Cloud Foundry from Backup with BBR</a> procedure, the Elastic Runtime redeploy fails after clicking <strong>Apply Changes</strong> since CredHub requires a restart.</p>
+
+<p>To work around this issue, manually restart the CredHub process on the BOSH Director by running <code>monit restart credhub</code>, then click <strong>Apply Changes</strong>.</p>
+
+<p>For more information, see the corresponding <a href="https://discuss.pivotal.io/hc/en-us/articles/115012475527">Knowledge Base</a> article.</p>
+
+<h3><a id='autoscaler'></a> Lack of Autoscaler Scaling</h3>
+
+<p>You cannot scale the Autoscaler job to greater than one instance.</p>
+
+<h2><a id='adv-features'></a> About Advanced Features</h2>
+
+<p>The Advanced Features section of the Elastic Runtime tile includes new
+functionality that may have certain constraints.</p>
+
+<p>Although these features are fully supported, Pivotal recommends caution when
+using them in production.</p>
+
+        <div><a id='repo-link' href='http://github.com/pivotal-cf/pcf-release-notes/tree/2.0/runtime-rn.html.md.erb'>View the source for this page in GitHub</a></div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<div id="scrim"></div>
+
+<div class="container">
+  <footer class="site-footer-links">
+    <div class="copyright">
+  <a href='https://pivotal.io/privacy-policy'>Privacy Policy</a> | 
+  <a href='https://pivotal.io/terms-of-use'>Terms of Use</a><br/>
+  <a href='/'>Pivotal Documentation</a>
+  &copy; 2017 <a href='https://pivotal.io'>Pivotal Software</a>, Inc. All Rights Reserved.
+</div>
+<div class="support">
+  Need help? <a href="http://support.pivotal.io" target="_blank">Visit Support</a>
+</div>
+
+  </footer>
+</div><!--end of container-->
+
+</body>
+</html>
