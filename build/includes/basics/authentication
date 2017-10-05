@@ -1,0 +1,22 @@
+<h2 id="authentication">Authentication</h2>
+
+<p>You must pass a token to the metrics endpoint. This token is a credential passed to the app when it is bound to the service. 
+Get the access token from the VCAP_SERVICES environment variable.</p>
+<pre class="highlight shell"><code><span class="s2">"VCAP_SERVICES"</span>: <span class="o">{</span>
+  <span class="s2">"metrics-forwarder"</span>: <span class="o">[</span>
+   <span class="o">{</span>
+    <span class="s2">"credentials"</span>: <span class="o">{</span>
+     <span class="s2">"access_key"</span>: <span class="s2">"[access_token]"</span>,
+     <span class="s2">"hostname"</span>: <span class="s2">"[endpoint]"</span>
+    <span class="o">}</span>,
+    <span class="s2">"label"</span>: <span class="s2">"metrics-forwarder"</span>,
+    <span class="s2">"name"</span>: <span class="s2">"[service_instance_name]"</span>,
+    <span class="s2">"plan"</span>: <span class="s2">"[plan]"</span>,
+    <span class="s2">"provider"</span>: null,
+    <span class="s2">"syslog_drain_url"</span>: null,
+    <span class="s2">"tags"</span>: <span class="o">[]</span>,
+    <span class="s2">"volume_mounts"</span>: <span class="o">[]</span>
+   <span class="o">}</span>
+  <span class="o">]</span>
+ <span class="o">}</span>
+</code></pre>

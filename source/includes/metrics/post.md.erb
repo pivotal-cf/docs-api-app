@@ -1,0 +1,78 @@
+### Post
+Send custom metrics to be emitted
+
+```shell
+<%=
+  CurlHelper.new(verb: 'POST',
+      endpoint: '/v1/metrics',
+      data: '{
+      	"applications": [
+      	{
+      		"id": "[app_guid]",
+      		"instances": [
+      		{
+      			"id": "[instance_guid]",
+      			"index": "[index]",
+      			"metrics": [
+      			{
+      				"name": "[metric_name]",
+      				"type": "gauge",
+      				"value": [metric_value],
+      				"timestamp": [timestamp],
+      				"unit": "[metric_unit]",
+      				"tags": {
+      					"[tag_key]": "[tag_value]"
+      				}
+      			}]
+      		}]
+      	}]
+      }',
+      authenticated: true
+  ).render
+%>
+```
+
+```
+Example Response
+```
+
+
+```http
+HTTP/1.1 202 ACCEPTED
+```
+
+#### HTTP Request
+
+`POST /v1/metrics`
+
+##### Custom Metrics
+
+Parameter | Type | Description
+---------- | ----------- | -----------
+**applications** | _list of a single `application`_ | The application the metrics belong to
+
+##### Application
+
+Parameter | Type | Description
+---------- | ----------- | -----------
+**id** | _string_ | GUID of the application
+**instances** | _list of `instance`_ | The instances the metrics belong to
+
+##### Instance
+
+Parameter | Type | Description
+---------- | ----------- | -----------
+**id** | _string_ | GUID of the instance
+**index** | _string_ | The index of the application instance as reported by cloud controller
+**metrics** | _list of `metric`_ | The metrics that are to be emitted
+
+##### Metric
+
+Parameter | Type | Description | Examples
+---------- | ----------- | ----------- | -----------
+**name** | _string_ | Name of the metric (recommended: lowercase, separated by `.`) | test.metric
+**type** | _string_ | Type of metric (Only gauge is supported) | gauge
+**value** | _float64_ | Value of the metric | 12.21
+**timestamp** | _int64_ | Timestamp in milliseconds (Not in the future and not older than 2 weeks) | 1495210954564
+**unit** | _string_ | Unit that the metric's value is in | seconds
+**tags** | _map of `key`:`value` pairs_ | The tags to send with the metric | `{"user":"internal", "timezone":"America/New_York"}`

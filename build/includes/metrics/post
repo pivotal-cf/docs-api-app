@@ -1,0 +1,148 @@
+<h3 id="post">Post</h3>
+
+<p>Send custom metrics to be emitted</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://example.com/v1/metrics"</span> <span class="se">\ </span>
+    -X POST <span class="se">\ </span>
+    -H <span class="s2">"Authorization: [token]"</span> <span class="se">\ </span>
+    -d <span class="s1">'{
+        "applications": [
+        {
+            "id": "[app_guid]",
+            "instances": [
+            {
+                "id": "[instance_guid]",
+                "index": "[index]",
+                "metrics": [
+                {
+                    "name": "[metric_name]",
+                    "type": "gauge",
+                    "value": [metric_value],
+                    "timestamp": [timestamp],
+                    "unit": "[metric_unit]",
+                    "tags": {
+                        "[tag_key]": "[tag_value]"
+                    }
+                }]
+            }]
+        }]
+      }'</span>
+</code></pre>
+<pre class="highlight plaintext"><code>Example Response
+</code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">202</span> <span class="ne">ACCEPTED</span>
+</code></pre>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p><code class="prettyprint">POST /v1/metrics</code></p>
+
+<h5 id="custom-metrics">Custom Metrics</h5>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>applications</strong></td>
+<td><em>list of a single <code class="prettyprint">application</code></em></td>
+<td>The application the metrics belong to</td>
+</tr>
+</tbody></table>
+
+<h5 id="application">Application</h5>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><em>string</em></td>
+<td>GUID of the application</td>
+</tr>
+<tr>
+<td><strong>instances</strong></td>
+<td><em>list of <code class="prettyprint">instance</code></em></td>
+<td>The instances the metrics belong to</td>
+</tr>
+</tbody></table>
+
+<h5 id="instance">Instance</h5>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><em>string</em></td>
+<td>GUID of the instance</td>
+</tr>
+<tr>
+<td><strong>index</strong></td>
+<td><em>string</em></td>
+<td>The index of the application instance as reported by cloud controller</td>
+</tr>
+<tr>
+<td><strong>metrics</strong></td>
+<td><em>list of <code class="prettyprint">metric</code></em></td>
+<td>The metrics that are to be emitted</td>
+</tr>
+</tbody></table>
+
+<h5 id="metric">Metric</h5>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Examples</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong></td>
+<td><em>string</em></td>
+<td>Name of the metric (recommended: lowercase, separated by <code class="prettyprint">.</code>)</td>
+<td>test.metric</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td><em>string</em></td>
+<td>Type of metric (Only gauge is supported)</td>
+<td>gauge</td>
+</tr>
+<tr>
+<td><strong>value</strong></td>
+<td><em>float64</em></td>
+<td>Value of the metric</td>
+<td>12.21</td>
+</tr>
+<tr>
+<td><strong>timestamp</strong></td>
+<td><em>int64</em></td>
+<td>Timestamp in milliseconds (Not in the future and not older than 2 weeks)</td>
+<td>1495210954564</td>
+</tr>
+<tr>
+<td><strong>unit</strong></td>
+<td><em>string</em></td>
+<td>Unit that the metric&rsquo;s value is in</td>
+<td>seconds</td>
+</tr>
+<tr>
+<td><strong>tags</strong></td>
+<td><em>map of <code class="prettyprint">key</code>:<code class="prettyprint">value</code> pairs</em></td>
+<td>The tags to send with the metric</td>
+<td><code class="prettyprint">{&quot;user&quot;:&quot;internal&quot;, &quot;timezone&quot;:&quot;America/New_York&quot;}</code></td>
+</tr>
+</tbody></table>
